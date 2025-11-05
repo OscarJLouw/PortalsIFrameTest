@@ -4,31 +4,29 @@
 <head>
     <meta charset="utf-8">
     <title>Portals iFrame Test</title>
-    <style>
-        html,
-        body {
-            background: transparent;
-            width: 100%;
-            height: 100%;
-            margin: 0;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 100vw;
-            height: 100vh;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="./src/css/styles.css" />
 </head>
 
 <body>
     <div class="container">
-        <h1>Wowee a website!</h1>
-        <p>Ain't that just somethin.</p>
+        <div class="lock" id="lock">
+            <div class="lcd" id="lcd"></div>
+            <div class="keypad" id="keypad">
+                <button data-key="1">1</button>
+                <button data-key="2">2</button>
+                <button data-key="3">3</button>
+                <button data-key="4">4</button>
+                <button data-key="5">5</button>
+                <button data-key="6">6</button>
+                <button data-key="7">7</button>
+                <button data-key="8">8</button>
+                <button data-key="9">9</button>
+            </div>
+            <button class="btn-clear" data-action="clear">C</button>
+            <button class="keypad-zero" data-key="0">0</button>
+            <button class="btn-submit" data-action="submit">▶</button>
+        </div>
     </div>
-</body>
 
-</html>
+    <script type="module" src="./src/js/main.js"></script>
+</body>

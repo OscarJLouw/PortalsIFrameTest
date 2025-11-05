@@ -1,0 +1,90 @@
+html, body {
+    background: transparent;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+/* Global variables */
+:root {
+    --aspect-ratio: 0.75; /* aspect ratio of the lock, width/height (0.75 is 4:3) */
+    --border-style: max(2px, 0.3vmin) solid #333;
+}
+
+.container {
+    display: grid;
+    place-items: center;
+    width: 100vw;   /* 100% of the viewport width and height (full page coverage) */
+    height: 100vh;
+}
+
+.lock {
+    container-type: size;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* 3 columns, evenly spaced */
+    grid-template-rows: 1fr 3fr 1fr;    /* 3 rows, middle row is 3 times as tall as others */
+    grid-template-areas:                /* place each grid-area (defined in css classes) */
+        "lcd lcd lcd"
+        "keypad keypad keypad"
+        "btn-clear keypad-zero btn-submit";
+    gap: 0.5em;
+    width: min(90vw, calc(90vh * var(--aspect-ratio))); /* fit to screen, keep aspect ratio */
+    height: min(90vh, calc(90vw / var(--aspect-ratio)));
+}
+
+.lcd {
+    grid-area: lcd; /* lcd grid area covers the whole top row */
+    container-type: inline-size;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: ui-monospace, monospace;
+    font-size: 18cqmin;     /* scales each character to 18% of the container div's width */
+    letter-spacing: 5cqmin;
+    user-select: none;
+    border: var(--border-style);
+    background: #1a1a1a;
+    color: #ffdd00;
+}
+
+.lcd.success {
+    background: #19946f;
+}
+
+.lcd.error {
+    background: #f21c1c;
+}
+
+.keypad {
+    grid-area: keypad;  /* keypad occupies middle row, 3 times as tall as others */
+    display: grid;      /* keypad is itself a simple grid */
+    grid-template-columns: repeat(3, 1fr);  /* all cells are evenly spaced */
+    gap: 0.5em;
+}
+
+.keypad-zero {
+    grid-area: keypad-zero; /* zero key is nestled between clear and submit buttons */
+}
+
+.btn-clear {
+    grid-area: btn-clear;
+    background: #ffdd00;
+}
+
+.btn-submit {
+    grid-area: btn-submit;
+    background: #19946f
+}
+
+button {
+    container-type: inline-size;
+    font-family: ui-monospace, monospace;
+    font-size: 15cqmin;     /* scales the number to 15% of the button's width */
+    border: var(--border-style);
+    background: #dfdcd3;
+    color: #000000;
+    cursor: pointer;
+}
+
+button:active {
+    background: #f87c4f;
+}
