@@ -8,25 +8,26 @@
 </head>
 
 <body>
+    <button class="close-button" onclick="CloseIFrame()">✖</button>
     <div class="container">
         <div class="lock" id="lock">
             <div class="lcd" id="lcd"></div>
             <div class="keypad" id="keypad">
-                <button data-key="1">1</button>
-                <button data-key="2">2</button>
-                <button data-key="3">3</button>
-                <button data-key="4">4</button>
-                <button data-key="5">5</button>
-                <button data-key="6">6</button>
-                <button data-key="7">7</button>
-                <button data-key="8">8</button>
-                <button data-key="9">9</button>
+                <button class="keypad-btn" data-key="1">1</button>
+                <button class="keypad-btn" data-key="2">2</button>
+                <button class="keypad-btn" data-key="3">3</button>
+                <button class="keypad-btn" data-key="4">4</button>
+                <button class="keypad-btn" data-key="5">5</button>
+                <button class="keypad-btn" data-key="6">6</button>
+                <button class="keypad-btn" data-key="7">7</button>
+                <button class="keypad-btn" data-key="8">8</button>
+                <button class="keypad-btn" data-key="9">9</button>
             </div>
-            <button class="btn-clear" data-action="clear">C</button>
-            <button class="keypad-zero" data-key="0">0</button>
-            <button class="btn-submit" data-action="submit">▶</button>
+            <button class="keypad-btn btn-clear" data-action="clear">C</button>
+            <button class="keypad-btn keypad-zero" data-key="0">0</button>
+            <button class="keypad-btn btn-submit" data-action="submit">▶</button>
         </div>
     </div>
-
+    <script src="https://portals-labs.github.io/portals-sdk/portals-sdk.js?v=10005456"></script>
     <script type="module" src="./src/js/main.js"></script>
 </body>

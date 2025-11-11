@@ -1,3 +1,8 @@
+import { PortalsHandler } from "./PortalsHandler";
+
+const portalsHandler = new PortalsHandler();
+portalsHandler.Setup(import.meta.env.PROD);
+
 // ---------- Configuration ----------
 const SECRET_CODE = "1234";             // Change this to your unlock code
 const MAX_DIGITS = SECRET_CODE.length;
@@ -37,7 +42,7 @@ function submitCode() {
     cancelScheduledClear(); // Interrupt clear timer on user input
     const isCorrect = codeInputBuffer === SECRET_CODE; // Check if entered code is correct
     // Show code with relevant visual state, feedback on whether the submitted code was correct
-    renderLCD(isCorrect ? "correct" : "incorrect");
+    renderLCD(isCorrect ? "correct" : "incorrect");  // Confused? Google "ternary operator".
     // Keep code + feedback visible for a short time before clearing
     clearCodeAfterDelay();
 }
