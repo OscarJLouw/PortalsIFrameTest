@@ -23,8 +23,6 @@ export class PortalsHandler {
         // Attach this function to the window to make it globally accessible,
         // even in the onclick callback on the close button in index.html
         window.CloseIFrame = () => this.CloseIFrame();
-
-        this.SetTaskState("FadeToBlack", this.TaskStates.AnyToActive);
     }
 
     SetTaskState(taskName, targetState) {

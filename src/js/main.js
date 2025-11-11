@@ -43,6 +43,9 @@ function submitCode() {
     const isCorrect = codeInputBuffer === SECRET_CODE; // Check if entered code is correct
     // Show code with relevant visual state, feedback on whether the submitted code was correct
     renderLCD(isCorrect ? "correct" : "incorrect");  // Confused? Google "ternary operator".
+    // Set the KeypadSolved task to complete if the user has entered the correct code
+    if(isCorrect)
+        portalsHandler.SetTaskState("KeypadSolved", portalsHandler.TaskStates.AnyToComplete);
     // Keep code + feedback visible for a short time before clearing
     clearCodeAfterDelay();
 }
